@@ -1,0 +1,42 @@
+<h2>Create Profile</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <script>
+        // JavaScript for dynamically updating the province and municipality
+        const regionToProvince = {
+            'Region I': ['Province 1A', 'Province 1B'],
+            'Region II': ['Province 2A', 'Province 2B'],
+        };
+
+        const provinceToMunicipality = {
+            'Province 1A': ['Municipality 1A1', 'Municipality 1A2'],
+            'Province 2A': ['Municipality 2A1', 'Municipality 2A2'],
+        };
+
+        document.getElementById('id_region').addEventListener('change', function() {
+            const provinceSelect = document.getElementById('id_province');
+            const selectedRegion = this.value;
+            provinceSelect.innerHTML = '';
+            regionToProvince[selectedRegion].forEach(function(province) {
+                const option = document.createElement('option');
+                option.value = province;
+                option.innerHTML = province;
+                provinceSelect.appendChild(option);
+            });
+        });
+
+        document.getElementById('id_province').addEventListener('change', function() {
+            const municipalitySelect = document.getElementById('id_municipality');
+            const selectedProvince = this.value;
+            municipalitySelect.innerHTML = '';
+            provinceToMunicipality[selectedProvince].forEach(function(municipality) {
+                const option = document.createElement('option');
+                option.value = municipality;
+                option.innerHTML = municipality;
+                municipalitySelect.appendChild(option);
+            });
+        });
+    </script>
+    <button type="submit">Save Profile</button>
+</form>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Blood Donation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-blood-donation-art-free-simple-white-banner-picture-image_1100873.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-register, .btn-login {
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .btn-register:hover, .btn-login:hover {
+            background-color: #600000;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="overlay">
+            <h1 style="color: black;">Welcome to the Blood Donation Portal</h1>
+            <p class="lead">Your contribution can save lives. Join us in our mission to help those in need!</p>
+            <div class="mt-4">
+                <a href="{% url 'register' %}" class="btn btn-register">Register</a>
+                <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; {{ year }} Blood Donation. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

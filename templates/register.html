@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-image: url('https://t3.ftcdn.net/jpg/03/60/19/34/360_F_360193480_kiF7OU7k3YUhAADbLQzobEFwgOeejHZJ.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            margin: 0; 
+            color: black; 
+            padding-left: 5%;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 60%; /* Responsive width */
+            max-width: 210px;
+        }
+        label {
+            display: block;
+            margin-top: 5px;
+        }
+        input {
+            width: 100%;
+            max-width: 150px;
+            padding: 6px;
+            margin-top: 2px;
+            border-radius: 2px;
+            border: 1px solid #aaa;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px; 
+            background-color: #b22222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #800000;  
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" name="weight" required>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" name="height" required>
+
+            <label for="region">Region:</label>
+            <input type="text" name="region" required>
+
+            <label for="province">Province:</label>
+            <input type="text" name="province" required>
+
+            <label for="municipality">Municipality:</label>
+            <input type="text" name="municipality" required>
+
+            <label for="blood_type">Blood Type:</label>
+            <input type="text" name="blood_type" required>
+
+            <label for="availability">Available for donation:</label>
+            <input type="checkbox" name="availability"><br>
+
+            <button type="submit">Register</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <button onclick="window.location.href='/'">Home</button>
+    </div>
+</body>
+</html>

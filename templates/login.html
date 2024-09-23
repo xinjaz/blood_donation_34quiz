@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-geometric-gradient-creative-blood-donation-poster-background-material-picture-image_1127152.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 90vh;
+            position: relative;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            right: 20%;
+            transform: translateY(-50%);
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 100px rgba(1, 1, 0, 0.1);
+            width: 300px;
+        }
+
+        /* Align labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #8B0000;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #8B0000;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #8B0000;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #600000;
+        }
+
+        .messages {
+            color: #8B0000;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2 style="color: #8B0000;">Login</h2> <!-- Dark red heading -->
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <button onclick="window.location.href='/'">Home</button>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
